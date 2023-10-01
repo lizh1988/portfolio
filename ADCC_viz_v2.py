@@ -58,7 +58,7 @@ with chart1:
 #Win type histogram
     if st.select=='Male':
         hst=px.histogram(
-        dfm, y='weight_class', x='percentagecount', title = 'Distribution of win types across weight categories - Males',
+        dfm, y='weight_class', x='percentagecount', title = 'Distribution of win types - Males',
         barmode='stack', barnorm='percent', color ='win_type',
         labels=dict(weight_class='Weight Class', percentagecount="occurence", win_type="Type of victory"),
         category_orders={'Type of victory': ['POINTS', 'DECISION', 'SUBMISSION']}
@@ -67,7 +67,7 @@ with chart1:
 
     elif st.select=='Female':
         hst=px.histogram(
-        dff, y='weight_class', x='percentagecount', title = 'Distribution of win types across weight categories - Females', 
+        dff, y='weight_class', x='percentagecount', title = 'Distribution of win types - Females', 
         color='win_type', barmode='stack', barnorm='percent',
         labels=dict(weight_class='Weight Class', percentagecount="occurence", win_type="Type of victory"),
         category_orders={"Type of victory": ["Points", "Decision", "Submission"]}
@@ -89,13 +89,13 @@ dffpoints['points_diff']=(dffpoints['winner_points']-dffpoints['loser_points'])
 with chart2:
     if st.select=='Male':
         hst1=px.histogram(
-        dfmpoints, x='points_diff', title = 'Distribution of points difference in matches where athletes won by points - Males',
+        dfmpoints, x='points_diff', title = 'Distribution of points difference - Males',
         labels=dict(points_diff='Difference in points'), color_discrete_sequence=['indianred']
         )
 
     elif st.select=='Female':
         hst1=px.histogram(
-        dffpoints, x='points_diff', title = 'Distribution of points difference in matches where athletes won by points - Females',
+        dffpoints, x='points_diff', title = 'Distribution of points difference - Females',
         labels=dict(points_diff='Difference in points'), color_discrete_sequence=['indianred']
         )
 
