@@ -4,7 +4,10 @@ import seaborn as sns
 import plotly.express as px
 import plotly.subplots as sp
 import plotly.graph_objects as go
+import streamlit as st
 
+
+@st.cache(persist=True)
 #Reading CSV file
 url = 'https://raw.githubusercontent.com/lizh1988/portfolio/main/ADCC%20data%20viz/adcc_historical_data.csv'
 df = pd.read_csv(url, sep = ';')
@@ -32,3 +35,9 @@ df.drop(mask.index,inplace=True, axis=0)
 #Splitting the dataset into male and female datasets
 dfm=df[df['sex']=='M']
 dff=df[df['sex']=='F']
+
+
+
+st.header("An analysis of ADCC matches from 1998 to 2022", divider ='red')
+
+st.select = st.selectbox('Gender', ['Male', 'Female'])
