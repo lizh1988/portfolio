@@ -11,5 +11,8 @@ df.drop(['match_id','winner_id', 'loser_id', 'winner_name','loser_name'], axis=1
 
 mask1=df.loc[(df['win_type']=='SUBMISSION') & df['submission'].isna()]
 mask2=df.loc[(df['win_type']== 'INJURY') | (df['win_type']== 'DESQUALIFICATION')]
-print(mask1)
-print(mask2)
+
+df.drop(index=mask1.index, inplace=True)
+df.drop(index=mask2.index, inplace=True)
+
+df.value_counts('win_type')
