@@ -104,7 +104,7 @@ with chart2:
         )
         hst1.update_xaxes(tickson='boundaries')
     hst1.update_layout(xaxis=dict(tickmode = 'linear', tick0 = 0, dtick=1))
-
+    hst1.update_traces(marker_line_width=1,marker_line_color="black")
     st.plotly_chart(hst1,use_container_width=True)
 
 dfmsub=dfm[dfm['submission'].notnull()]
