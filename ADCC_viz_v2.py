@@ -4,7 +4,7 @@ import plotly.express as px
 import plotly.subplots as sp
 import plotly.graph_objects as go
 import streamlit as st
-import streamlit_elements as ste
+import streamlit-elements as ste
 
 
 st.title("ADCC statistics")
