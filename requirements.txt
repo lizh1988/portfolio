@@ -2,4 +2,7 @@ streamlit
 pandas
 numpy
 seaborn
+plotly.express
+plotly.graph_objects
+plotly.subplots
 plotly
