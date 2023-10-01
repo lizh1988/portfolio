@@ -3,4 +3,4 @@ pandas
 numpy
 seaborn
 plotly
-streamlit-elements
+streamlit-elements==0.1
