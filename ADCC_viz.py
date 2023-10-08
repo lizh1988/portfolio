@@ -8,7 +8,7 @@ import streamlit as st
 import warnings
 warnings.filterwarnings('ignore')
 
-st.set_page_config(page_title="ADCC statistics", layout='wide')
+st.set_page_config(page_title="ADCC statistics", layout='wide', initial_sidebar_state='expanded')
 st.title("ADCC statistics")
 #Reading CSV file
 filename = 'https://raw.githubusercontent.com/lizh1988/portfolio/main/ADCC%20data%20viz/adcc_historical_data.csv'
