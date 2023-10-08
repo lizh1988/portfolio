@@ -62,8 +62,9 @@ elif genderfilter=='Female':
 weightfilter=st.sidebar.multiselect('Pick the weight classes you are interested in:',dfcopy['weight_class'].unique())
 
 dfcopy=dfcopy[dfcopy['weight_class'].isin(weightfilter)]
-dfcopy=dfcopy.sort_values(by=["weight_class","target"], axis=0)
 
+custom_dict=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS']
+dfcopy=dfcopy.sort_values(by=["weight_class", "win_type", "target"], axis=0, key=lambda x: x.map(custom_dict))
 
 col1,col2=st.columns((2,1))
 
@@ -110,14 +111,11 @@ with col1:
 
     st.write(hst1)
 
-dfmsub=dfm[dfm['submission'].notnull()]
-dfmsub['subcounts']=1
+dfsub=dfcopy[dfcopy['submission'].notnull()]
+dfsub['subcounts']=1
 
-dffsub=dff[dff['submission'].notnull()]
-dffsub['subcounts']=1
+dfsub=dfsub.sort_values(by=["weight_class","target"], axis=0)
 
-dffsub=dffsub.sort_values(by=["weight_class","target"], axis=0)
-dfmsub=dfmsub.sort_values(by=["weight_class","target"], axis=0)
 
 with col2:
     if genderfilter=='Male':
