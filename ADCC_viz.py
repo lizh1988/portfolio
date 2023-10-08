@@ -75,7 +75,7 @@ df['win_type'] = pd.Categorical(df['win_type'], ordered=True,
 df['target'] = pd.Categorical(df['target'], ordered=True, 
             categories=['Arms', 'Legs', 'Neck'])
 
-col1,col2=st.columns((2,1))
+col1,col2=st.columns((1,1.5))
 
 
 
@@ -98,7 +98,7 @@ with col1:
 
     hst.update_layout(xaxis_ticksuffix = '%', xaxis_title= 'Percentage within each weight class')
 
-    st.write(hst)
+    st.plotly_chart(hst, use_container_width=True, height=400)
 
 
     #Points difference histogram
@@ -109,7 +109,7 @@ with col1:
 
     
     hst1=px.histogram(
-    dfpoints, x='points_diff', title = 'Distribution of points difference in matches where athletes won by points',
+    dfpoints, x='points_diff', title = 'Distribution of points difference',
     labels=dict(points_diff='Difference in points'), color_discrete_sequence=['indianred']
     )
     hst1.update_traces(
@@ -118,7 +118,7 @@ with col1:
     hst1.update_xaxes(tickson='boundaries')
     hst1.update_layout(xaxis=dict(tickmode = 'linear', tick0 = 0, dtick=1))
 
-    st.write(hst1)
+    st.plotly_chart(hst1, use_container_width=True, height =400)
 
 dfsub=dfcopy[dfcopy['submission'].notnull()]
 dfsub['subcounts']=1
@@ -133,7 +133,7 @@ with col2:
     labels={'subcounts': 'Number of occurences'}, title='Distribution of completed submissions'
     )
 
-    sb.update_traces(textinfo="label+percent parent")
+    sb.update_traces(textinfo="label+percent parent", insidetextorientation='horizontal')
 
     sb.update_layout(title='Breakdown of targets attacked and submission type by weight class')
-    st.write(sb)
+    st.plotly_chart(sb, use_container_width=True, height =900)
