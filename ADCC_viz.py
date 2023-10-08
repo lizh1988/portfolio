@@ -136,4 +136,4 @@ with col2:
     sb.update_traces(textinfo="label+percent parent", insidetextorientation='horizontal')
 
     sb.update_layout(title='Breakdown of targets attacked and submission type by weight class')
-    st.plotly_chart(sb, use_container_width=True, height =900)
+    st.plotly_chart(sb, use_container_width=False, height =900)
