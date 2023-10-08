@@ -78,10 +78,10 @@ with col1:
     labels=dict(weight_class='Weight Class', percentagecount="occurence", win_type="Type of victory"),
     category_orders={'Type of victory': ['POINTS', 'DECISION', 'SUBMISSION']}
     )
-    if genderfilter=='Male':
-        hst.update_yaxes(categoryorder='array', categoryarray= ['66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS'])
-    elif genderfilter=='Female':
-        hst.update_yaxes(categoryorder='array', categoryarray=['60KG', '+60KG'])
+    #if genderfilter=='Male':
+        #hst.update_yaxes(categoryorder='array', categoryarray= ['66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS'])
+    #elif genderfilter=='Female':
+        #hst.update_yaxes(categoryorder='array', categoryarray=['60KG', '+60KG'])
 
     
         
@@ -93,13 +93,13 @@ with col1:
 
     #Points difference histogram
     dfpoints=dfcopy[dfcopy['win_type']=='POINTS'] 
-    dfcopypoints['points_diff']=(dfcopypoints['winner_points']-dfcopypoints['loser_points'])
+    dfpoints['points_diff']=(dfpoints['winner_points']-dfpoints['loser_points'])
     
 
 
     
     hst1=px.histogram(
-    dfcopypoints, x='points_diff', title = 'Distribution of points difference in matches where athletes won by points',
+    dfpoints, x='points_diff', title = 'Distribution of points difference in matches where athletes won by points',
     labels=dict(points_diff='Difference in points'), color_discrete_sequence=['indianred']
     )
     hst1.update_traces(
