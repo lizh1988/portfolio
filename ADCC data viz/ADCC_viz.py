@@ -49,11 +49,11 @@ st.sidebar.header('Choose your filters:')
 genderfilter = st.sidebar.selectbox('Gender', ['Male', 'Female'])
 
 #Splitting the dataset into male and female datasets
-if genderselect=='Male':
+if genderfilter=='Male':
     dfcopy=df[df['sex']=='M']
     dfcopy['percentagecount']=0.01
     dfcopy=dfcopy.sort_values(by=["win_type"], axis=0)
-elif genderselect=='Female':
+elif genderfilter=='Female':
     dfcopy=df[df['sex']=='F']
     dfcopy['percentagecount']=0.01
     dfcopy=dfcopy.sort_values(by=["win_type"], axis=0)
@@ -122,13 +122,13 @@ dffsub=dffsub.sort_values(by=["weight_class","target"], axis=0)
 dfmsub=dfmsub.sort_values(by=["weight_class","target"], axis=0)
 
 with col2:
-    if st.select=='Male':
+    if genderfilter=='Male':
         sb=px.sunburst(
         dfmsub, path=['weight_class','target','submission'], values='subcounts', color='target',
         labels={'subcounts': 'Number of occurences'}, title='Male atheletes'
         )
 
-    elif st.select=='Female':
+    elif genderfilter=='Female':
         sb=px.sunburst(
         dffsub, path=['weight_class','target','submission'], values='subcounts', color='target',
         labels={'subcounts': 'Number of occurences'}, title='Female athletes'
