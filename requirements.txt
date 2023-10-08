@@ -5,7 +5,7 @@ seaborn
 plotly
 streamlit-elements==0.1
 cloudpickle
-sklearn
+scikit-learn
 xgboost
 tensorflow
 keras
