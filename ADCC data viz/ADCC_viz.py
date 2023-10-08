@@ -5,8 +5,10 @@ import plotly.express as px
 import plotly.subplots as sp
 import plotly.graph_objects as go
 import streamlit as st
+import warnings
+warnings.filterwarnings('ignore')
 
-
+st.set_page_config(page_title="ADCC statistics")
 st.title("ADCC statistics")
 #Reading CSV file
 filename = 'https://raw.githubusercontent.com/lizh1988/portfolio/main/ADCC%20data%20viz/adcc_historical_data.csv'
