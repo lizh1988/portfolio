@@ -62,7 +62,7 @@ elif genderfilter=='Female':
 weightfilter=st.sidebar.multiselect('Pick the weight classes you are interested in:',dfcopy['weight_class'].unique())
 
 dfcopy=dfcopy[dfcopy['weight_class'].isin(weightfilter)]
-
+dfcopy=dfcopy.sort_values(by=["weight_class","target"], axis=0)
 
 
 col1,col2=st.columns((2,1))
