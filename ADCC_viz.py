@@ -127,19 +127,13 @@ dfsub=dfsub.sort_values(by=["weight_class","target"], axis=0)
 
 
 with col2:
-    if genderfilter=='Male':
-        sb=px.sunburst(
-        dfmsub, path=['weight_class','target','submission'], values='subcounts', color='target',
-        labels={'subcounts': 'Number of occurences'}, title='Male atheletes'
-        )
-
-    elif genderfilter=='Female':
-        sb=px.sunburst(
-        dffsub, path=['weight_class','target','submission'], values='subcounts', color='target',
-        labels={'subcounts': 'Number of occurences'}, title='Female athletes'
-        )
+    
+    sb=px.sunburst(
+    dfsub, path=['weight_class','target','submission'], values='subcounts', color='target',
+    labels={'subcounts': 'Number of occurences'}, title='Distribution of completed submissions'
+    )
 
     sb.update_traces(textinfo="label+percent parent")
 
-    sb.update_layout(title='Breakdown of targets attacked and submission type by weight class', height=800)
+    sb.update_layout(title='Breakdown of targets attacked and submission type by weight class')
     st.write(sb)
