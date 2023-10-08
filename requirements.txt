@@ -4,3 +4,11 @@ numpy
 seaborn
 plotly
 streamlit-elements==0.1
+cloudpickle
+sklearn
+xgboost
+tensorflow
+keras
+seaborn
+
+hyperopt
