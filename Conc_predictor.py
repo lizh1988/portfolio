@@ -18,7 +18,7 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Concrete strength predictor", layout='wide')
 st.title("Predict your concrete strength here!")
 st.write('Enter the values of your mix design in kg/m³, age in days')
-st.header(divider='rainbow')
+'---'
 #Reading CSV file
 filename = 'https://github.com/lizh1988/portfolio/raw/main/regoptparams.pkl'
 
@@ -30,7 +30,7 @@ factor=['Fly ash', 'Blast furnace slag', 'Superplasticizer', 'Water', 'Cement', 
 st.session_state.df = pd.DataFrame(columns=['cement', 'slag', 'water', 'ash', 'sp', 'coarse',
                           'fine', 'age'])
 
-st.header('Input your mix design here:')
+st.header('Input your mix design here:', divider='rainbow')
 with st.form('inputform', clear_on_submit=False):
     with st.expander('Input'):
         for i in factor:
