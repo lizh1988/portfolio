@@ -59,4 +59,4 @@ with st.form('inputform', clear_on_submit=False):
                               })], axis=0)
         
         y_pred=regopt.predict(st.session_state.df)
-        st.write(f'The predicted concrete strength is {y_pred} MPa.')       
+        st.info(f'The predicted concrete strength is {y_pred} MPa.')       
