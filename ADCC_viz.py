@@ -33,8 +33,8 @@ df['target']=(np.nan)
 upper_body=['Armbar', 'Kimura' ,'Omoplata', 'Americana' ,'Shoulder lock', 'Wristlock']
 lower_body=['Inside heel hook','Outside heel hook','Heel hook' ,'Footlock' , 'Toe hold' , 'Leg lock' , 'Calf slicer', 'Dogbar' , 'Estima lock' , 'Z Lock', 'Kneebar']
 neck=['RNC' , 'Katagatame' , 'Guillotine' , 'Triangle' , 'Choke' , "D'arce choke" , 'Short choke' , 'North south choke' , 'Headlock' , 'Anaconda' , 'Ezekiel' , 'Cross face' , 'Twister']
-df.loc[df['submission'].isin(upper_body), 'target'] = 'Upper body'
-df.loc[df['submission'].isin(lower_body), 'target'] = 'Lower body'
+df.loc[df['submission'].isin(upper_body), 'target'] = 'Arms'
+df.loc[df['submission'].isin(lower_body), 'target'] = 'Legs'
 df.loc[df['submission'].isin(neck), 'target'] = 'Neck'   
 
 df['submission'].replace(['Inside heel hook', 'Outside heel hook'], 'Heel hook', inplace=True)
@@ -65,6 +65,15 @@ dfcopy=dfcopy[dfcopy['weight_class'].isin(weightfilter)]
 
 custom_dict=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS']
 dfcopy=dfcopy.sort_values(by=["weight_class", "win_type", "target"], axis=0, key=lambda x: x.map(custom_dict))
+
+df['weight_class'] = pd.Categorical(df['weight_class'], ordered=True, 
+            categories=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS'])
+
+df['win_type'] = = pd.Categorical(df['win_type'], ordered=True, 
+            categories=['POINTS', 'DECISION', 'SUBMISSION'])
+
+df['target'] = = pd.Categorical(df['target'], ordered=True, 
+            categories=['Arms', 'Legs', 'Neck'])
 
 col1,col2=st.columns((2,1))
 
