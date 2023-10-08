@@ -69,7 +69,7 @@ dfcopy=dfcopy.sort_values(by=["weight_class", "win_type", "target"], axis=0, key
 df['weight_class'] = pd.Categorical(df['weight_class'], ordered=True, 
             categories=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS'])
 
-df['win_type'] = = pd.Categorical(df['win_type'], ordered=True, 
+df['win_type'] = pd.Categorical(df['win_type'], ordered=True, 
             categories=['POINTS', 'DECISION', 'SUBMISSION'])
 
 df['target'] = = pd.Categorical(df['target'], ordered=True, 
