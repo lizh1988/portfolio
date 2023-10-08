@@ -96,9 +96,9 @@ with col1:
     
         
 
-    hst.update_layout(xaxis_ticksuffix = '%', xaxis_title= 'Percentage within each weight class')
+    hst.update_layout(xaxis_ticksuffix = '%', xaxis_title= 'Percentage within each weight class', height =300)
 
-    st.plotly_chart(hst, use_container_width=True, height=400)
+    st.plotly_chart(hst, use_container_width=True)
 
 
     #Points difference histogram
@@ -116,9 +116,9 @@ with col1:
     xbins=dict(size=1),
     )
     hst1.update_xaxes(tickson='boundaries')
-    hst1.update_layout(xaxis=dict(tickmode = 'linear', tick0 = 0, dtick=1))
+    hst1.update_layout(xaxis=dict(tickmode = 'linear', tick0 = 0, dtick=1), height =400)
 
-    st.plotly_chart(hst1, use_container_width=True, height =400)
+    st.plotly_chart(hst1, use_container_width=True)
 
 dfsub=dfcopy[dfcopy['submission'].notnull()]
 dfsub['subcounts']=1
@@ -135,5 +135,7 @@ with col2:
 
     sb.update_traces(textinfo="label+percent parent", insidetextorientation='horizontal')
 
-    sb.update_layout(title='Breakdown of targets attacked and submission type by weight class')
-    st.plotly_chart(sb, use_container_width=False, height =900)
+    sb.update_layout(title='Breakdown of targets attacked and submission type by weight class', height =750)
+    #st.write(sb)
+    
+    st.plotly_chart(sb, use_container_width=True)
