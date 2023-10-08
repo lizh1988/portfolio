@@ -65,9 +65,7 @@ dfcopy=dfcopy[dfcopy['weight_class'].isin(weightfilter)]
 
 
 
-
-
-col1,col2=st.column((2,1))
+col1,col2=st.column((2))
 
 
 
