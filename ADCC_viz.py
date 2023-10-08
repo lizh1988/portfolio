@@ -72,7 +72,7 @@ df['weight_class'] = pd.Categorical(df['weight_class'], ordered=True,
 df['win_type'] = pd.Categorical(df['win_type'], ordered=True, 
             categories=['POINTS', 'DECISION', 'SUBMISSION'])
 
-df['target'] = = pd.Categorical(df['target'], ordered=True, 
+df['target'] = pd.Categorical(df['target'], ordered=True, 
             categories=['Arms', 'Legs', 'Neck'])
 
 col1,col2=st.columns((2,1))
