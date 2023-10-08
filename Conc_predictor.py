@@ -18,6 +18,7 @@ warnings.filterwarnings('ignore')
 st.set_page_config(page_title="Concrete strength predictor", layout='wide')
 st.title("Predict your concrete strength here!")
 st.write('Enter the values of your mix design in kg/m³, age in days')
+st.header(divider='rainbow')
 #Reading CSV file
 filename = 'https://github.com/lizh1988/portfolio/raw/main/regoptparams.pkl'
 
