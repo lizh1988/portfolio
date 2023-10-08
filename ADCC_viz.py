@@ -63,8 +63,8 @@ weightfilter=st.sidebar.multiselect('Pick the weight classes you are interested 
 
 dfcopy=dfcopy[dfcopy['weight_class'].isin(weightfilter)]
 
-custom_dict=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS']
-dfcopy=dfcopy.sort_values(by=["weight_class", "win_type", "target"], axis=0, key=lambda x: x.map(custom_dict))
+#custom_dict=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS']
+#dfcopy=dfcopy.sort_values(by=["weight_class", "win_type", "target"], axis=0, key=lambda x: x.map(custom_dict))
 
 df['weight_class'] = pd.Categorical(df['weight_class'], ordered=True, 
             categories=['60KG', '+60KG','66KG', '77KG', '88KG', '99KG', '+99KG', 'ABS'])
