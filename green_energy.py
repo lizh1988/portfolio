@@ -57,18 +57,40 @@ def renew_metric():
     mode='number+gauge+delta',
     value = total_needs.loc[(total_needs['Variable']=='Renewables') | (total_needs['Variable']=='Nuclear'), 'Generation (TWh)'].sum(),
     number={'suffix':" TWh"},
-    delta = {'reference': total_needs.loc[(total_needs['Variable']=='Renewables') | (total_needs['Variable']=='Nuclear'), 'Change on last year (TWh)'].sum()},
+    delta = {'reference': (total_needs.loc[(total_needs['Variable']=='Renewables') | (total_needs['Variable']=='Nuclear'), 'Generation (TWh)'].sum() - total_needs.loc[(total_needs['Variable']=='Renewables') | (total_needs['Variable']=='Nuclear'), 'Change on last year (TWh)'].sum())},
     gauge = {
         'axis': {'range':[0,top_range.iloc[0]],'visible': True}
         },
-    domain = {'row': 0, 'column': 0}))
-    
-    #st.write(renew_df['Generation (TWh)'].sum())
+    domain = {'row': 0, 'column': 0},
+    title = {'text':'Renewables'}))
 
     fig.update_layout()
-    st.plotly_chart(fig)
+    st.plotly_chart(fig, use_container_width=True)
+
+def fossil_metric():
+    fig=go.Figure()
+    
+    total_needs=filter_df.loc[filter_df['Area']=='EU27+1',['Generation (TWh)','Variable', 'Change on last year (TWh)']]
+    top_range=total_needs.loc[total_needs['Variable']=='Demand','Generation (TWh)']
+    
+    
+    fig.add_trace(go.Indicator(
+    mode='number+gauge+delta',
+    value = total_needs.loc[(total_needs['Variable']=='Fossil'), 'Generation (TWh)'].sum(),
+    number={'suffix':" TWh"},
+    delta = {'reference': (total_needs.loc[(total_needs['Variable']=='Fossil'), 'Generation (TWh)'].sum() - total_needs.loc[(total_needs['Variable']=='Fossil'), 'Change on last year (TWh)'].sum()), 'increasing':{'color':'red'}, 'decreasing':{'color':'green'}},
+    gauge = {'axis': {'range':[0,top_range.iloc[0]],'visible': True}, 'bar' : {'color':'red'}},
+    domain = {'row': 0, 'column': 0},
+    title = {'text':'Fossil fuels'}
+    ))
+
+    fig.update_layout()
+    st.plotly_chart(fig, use_container_width=True)
 
 col1,col2 = st.columns(2)
 
 with col1:
     renew_metric()
+
+with col2:
+    fossil_metric()
