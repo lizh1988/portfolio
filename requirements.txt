@@ -12,7 +12,6 @@ keras
 seaborn
 hyperopt
 pygwalker
-sqlite3
 sqlalchemy
 json
 openpyxl
