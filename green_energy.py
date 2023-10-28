@@ -141,23 +141,23 @@ def sunburst():
     #st.write(temp_df)
 
     fig=px.sunburst(
-        temp_df, path=['Category','Variable'], values='Generation (TWh)', title=f'Energy generation of {selected_area}'
+        temp_df, path=['Category','Variable'], values='Generation (TWh)', title=f'Energy generation of {selected_area}', color_discrete_sequence=['green','red']
         )
-    color_map={
-            'Renewables':'#008000',
-            'Fossil fuels':'#ff0000',
-            'Hard Coal':'#f44336',
-            'Lignite':'#ea9999',
-            'Gas':'#cc0000',
-            'Other fossil':'#990000',
-            'Nuclear':'#adf703',
-            'Hydro':'#03f708',
-            'Wind':'#9edf9f',
-            'Solar':'#308932',
-            'Bioenergy':'#14ec77',
-            'Other renewables':'#83dfad'
-        }
-    fig.update_traces(marker_colors=[color_map[cat] for cat in fig.data[-1].labels])
+    # color_map={
+    #         'Renewables':'#008000',
+    #         'Fossil fuels':'#ff0000',
+    #         'Hard Coal':'#f44336',
+    #         'Lignite':'#ea9999',
+    #         'Gas':'#cc0000',
+    #         'Other fossil':'#990000',
+    #         'Nuclear':'#adf703',
+    #         'Hydro':'#03f708',
+    #         'Wind':'#9edf9f',
+    #         'Solar':'#308932',
+    #         'Bioenergy':'#14ec77',
+    #         'Other renewables':'#83dfad'
+    #     }
+    #fig.update_traces(marker_colors=[color_map[cat] for cat in fig.data[-1].labels])
     fig.update_layout(margin=dict(l=20, r=20, t=25, b=20))
     st.plotly_chart(fig, use_container_width=True)
 
