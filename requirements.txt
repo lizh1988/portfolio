@@ -13,3 +13,4 @@ seaborn
 hyperopt
 pygwalker
 sqlalchemy
+openpyxl
