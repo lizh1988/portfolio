@@ -6,8 +6,6 @@ import pandas as pd
 import numpy as np
 import sklearn as sk
 import xgboost as xgb
-import tensorflow as tf
-import keras as ks
 import seaborn as sns
 import plotly.express as px
 from hyperopt import fmin, tpe, hp, STATUS_OK, Trials, space_eval
