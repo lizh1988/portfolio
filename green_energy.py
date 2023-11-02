@@ -49,7 +49,7 @@ dftemp=df.loc[df['Year']==selected_date]
 filter_df=dftemp.loc[df['Area']==selected_area]
 
 #st.write(filter_df)
-
+@st.cache_data
 def renew_metric():
     fig=go.Figure()
     
@@ -70,7 +70,7 @@ def renew_metric():
 
     fig.update_layout()
     st.plotly_chart(fig, use_container_width=True)
-
+@st.cache_data
 def fossil_metric():
     fig=go.Figure()
     
@@ -90,7 +90,7 @@ def fossil_metric():
 
     fig.update_layout()
     st.plotly_chart(fig, use_container_width=True)
-
+@st.cache_data
 def bar_chart():
     dftemp=df.loc[df['Area']==selected_area]
 
@@ -131,7 +131,7 @@ def bar_chart():
     xaxis_title="Year", yaxis_title="Percentage of energy generated", legend_title_text='Energy generated'
     )
     st.plotly_chart(fig,use_container_width=True)
-
+@st.cache_data
 def sunburst():
     
 
@@ -160,7 +160,7 @@ def sunburst():
     #fig.update_traces(marker_colors=[color_map[cat] for cat in fig.data[-1].labels])
     fig.update_layout(margin=dict(l=20, r=20, t=25, b=20))
     st.plotly_chart(fig, use_container_width=True)
-
+@st.cache_data
 def heatmap():
     dftemp.loc[dftemp['Variable'].isin(renew), 'Category'] = 'Renewables'
     dftemp.loc[dftemp['Variable'].isin(fossil), 'Category'] = 'Fossil fuels'
